@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>liftr: Dockerize R Markdown Documents</title>
+    <title>liftr by road2stat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -14,45 +14,30 @@
       <h1 class="project-name">liftr</h1>
       <h2 class="project-tagline">Dockerize R Markdown Documents</h2>
       <a href="https://github.com/road2stat/liftr" class="btn">View on GitHub</a>
-      <a href="https://cran.r-project.org/web/packages/liftr/" class="btn">View on CRAN</a>
+      <a href="https://github.com/road2stat/liftr/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/road2stat/liftr/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <p><code>liftr</code> extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, helps you generate <code>Dockerfile</code> for rendering documents in Docker containers. Users can also include and run pre-defined <a href="https://www.rabix.org">Rabix</a> tools/workflows, then use Rabix output in their dockerized documents.</p>
 
 <h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/D1-l0Noa3Ho" frameborder="0" allowfullscreen></iframe></div>
-
-<h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>To download and install <code>liftr</code> from CRAN, type the following commands in R:</p>
+<p>To download and install <code>liftr</code> from CRAN:</p>
 
-<pre><code>install.packages("liftr")
-</code></pre>
+<div class="highlight highlight-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">"</span>liftr<span class="pl-pds">"</span></span>)</pre></div>
 
-<p>Or, you can install the cutting-edge development version from GitHub:</p>
+<p>Or, you can try the development version on GitHub:</p>
 
-<pre><code># install.packages("devtools")  # if devtools not installed
-devtools::install_github("road2stat/liftr")
-</code></pre>
+<div class="highlight highlight-r"><pre><span class="pl-c"># install.packages("devtools")</span>
+<span class="pl-e">devtools</span><span class="pl-k">::</span>install_github(<span class="pl-s"><span class="pl-pds">"</span>road2stat/liftr<span class="pl-pds">"</span></span>)</pre></div>
 
 <p>To load the package in R, simply use</p>
 
-<pre><code>library("liftr")
-</code></pre>
+<div class="highlight highlight-r"><pre>library(<span class="pl-s"><span class="pl-pds">"</span>liftr<span class="pl-pds">"</span></span>)</pre></div>
 
-<p>and you are all set. See the package vignette <code>vignette("liftr-intro")</code> for a quick-start guide.</p>
-
-<h2>
-<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
-
-<ul>
-<li>Nan Xiao &lt;<a href="mailto:nanx@uchicago.edu">nanx@uchicago.edu</a>&gt; &lt;<a href="http://r2s.name">http://r2s.name</a>&gt;</li>
-<li><a href="http://github.com/road2stat/liftr/issues">Bug report or feature request</a></li>
-</ul>
+<p>and you are all set. See <a href="https://cran.r-project.org/web/packages/liftr/vignettes/liftr-intro.html">the vignette</a> (can also be opened with <code>vignette("liftr-intro")</code> in R) for a quick-start guide.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/road2stat/liftr">liftr</a> is maintained by <a href="https://github.com/road2stat">road2stat</a>.</span>
