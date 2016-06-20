@@ -1,67 +1,147 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>liftr: Dockerize R Markdown Documents</title>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">liftr</h1>
-      <h2 class="project-tagline">Dockerize R Markdown Documents</h2>
-      <a href="https://github.com/road2stat/liftr" class="btn">View on GitHub</a>
-      <a href="https://cran.r-project.org/web/packages/liftr/" class="btn">View on CRAN</a>
-    </section>
+    <meta name="description" content="liftr: Dockerize R Markdown Documents">
+    <meta name="author" content="Nan Xiao">
 
-    <section class="main-content">
-      <p><code>liftr</code> extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, helps you generate <code>Dockerfile</code> for rendering documents in Docker containers. Users can also include and run pre-defined <a href="https://www.rabix.org">Rabix</a> tools/workflows, then use Rabix output in their dockerized documents.</p>
+    <title>liftr: Dockerize R Markdown Documents</title>
 
-<h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/D1-l0Noa3Ho" frameborder="0" allowfullscreen></iframe></div>
+    <!-- Custom CSS -->
+    <link href="css/rescale.css" rel="stylesheet">
 
-<h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+    <!-- Custom Fonts -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
 
-<p>To download and install <code>liftr</code> from CRAN:</p>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<div class="highlight highlight-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">"</span>liftr<span class="pl-pds">"</span></span>)</pre></div>
+</head>
 
-<p>Or, you can try the development version on GitHub:</p>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<div class="highlight highlight-r"><pre><span class="pl-c"># install.packages("devtools")</span>
-<span class="pl-e">devtools</span><span class="pl-k">::</span>install_github(<span class="pl-s"><span class="pl-pds">"</span>road2stat/liftr<span class="pl-pds">"</span></span>)</pre></div>
+<!-- Intro Header -->
+<header class="intro overlay">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h1 class="brand-heading">liftr</h1>
+                    <p class="intro-text">Dockerize R Markdown Documents</p>
 
-<p>To load the package in R, simply use</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://cran.r-project.org/package=liftr" class="btn btn-default btn-lg">
+                                <i class="fa fa-rocket fa-fw"></i> <span class="network-name">CRAN</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/road2stat/liftr" class="btn btn-default btn-lg">
+                                <i class="fa fa-github fa-fw"></i> <span class="network-name">GitHub</span></a>
+                        </li>
+                        <li>
+                            <a href="https://cran.r-project.org/web/packages/liftr/vignettes/liftr-intro.html" class="btn btn-default btn-lg">
+                                <i class="fa fa-book fa-fw"></i> <span class="network-name">Vignette</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<div class="highlight highlight-r"><pre>library(<span class="pl-s"><span class="pl-pds">"</span>liftr<span class="pl-pds">"</span></span>)</pre></div>
+<!-- Content Section -->
+<section id="content" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Introduction</h2>
+            <p align="left"><code>liftr</code> extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a>
+                metadata format, helps you generate <code>Dockerfile</code> for rendering documents
+                in Docker containers. Users can also include and run pre-defined
+                <a href="https://www.rabix.org">Rabix</a> tools/workflows,
+                then use Rabix output in their dockerized documents.</p>
+        </div>
+    </div>
+</section>
 
-<p>and you are all set. See <a href="https://cran.r-project.org/web/packages/liftr/vignettes/liftr-intro.html">the vignette</a> (can also be opened with <code>vignette("liftr-intro")</code> in R) for a quick-start guide.</p>
+<!-- Video Section -->
+<section id="demo" class="container demo-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Demo</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D1-l0Noa3Ho"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/road2stat/liftr">liftr</a> is maintained by <a href="https://github.com/road2stat">road2stat</a>.</span>
+<!-- Installation Section -->
+<section id="install" class="container content-section">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Install</h2>
+            <p align="left">
+                To download and install <code>liftr</code> from CRAN:
+            </p>
+            <pre align="left">install.packages("liftr")</pre>
+            <p align="left">
+                Or, you can try the development version on GitHub:
+            </p>
+                <pre align="left"># install.packages("devtools")
+devtools::install_github("road2stat/liftr")</pre>
+            <p align="left">
+                To load the package in R, simply use</p>
+            <pre align="left">library("liftr")</pre>
+            <p align="left">
+                and you are all set. See <a href="https://cran.r-project.org/web/packages/liftr/vignettes/liftr-intro.html">the vignette</a>
+                (can also be opened with <code>vignette("liftr-intro")</code> in R)
+                for a quick-start guide.
+            </p>
+        </div>
+    </div>
+</section>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p><small>&copy; 2015 - 2016 <br> Handmade in Cambridge, MA</small></p>
+    </div>
+</footer>
 
-    </section>
+<!-- jQuery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-65001771-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+<!-- Custom Theme JavaScript -->
+<script src="js/rescale.js"></script>
 
-  </body>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65001771-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+
 </html>
-
