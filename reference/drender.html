@@ -161,7 +161,8 @@ rendering dockerized R Markdown documents.</p>
 <span class='co'># Docker is required to run the example,</span>
 <span class='co'># so make sure we can use `docker` in terminal.</span>
 <span class='no'>dir_docker</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='fu'>tempdir</span>(), <span class='st'>'/drender_docker/'</span>)
-<span class='fu'>dir.create</span>(<span class='no'>dir_docker</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/pq/v9qf21p11vnglgdplj46bsr00000gn/T//RtmpYU1pyB/drender_docker' already exists</span></div><div class='input'><span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/docker.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_docker</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='no'>docker_input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_docker</span>, <span class='st'>"docker.Rmd"</span>)
+<span class='fu'>dir.create</span>(<span class='no'>dir_docker</span>)
+<span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/docker.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_docker</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='no'>docker_input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_docker</span>, <span class='st'>"docker.Rmd"</span>)
 <span class='fu'><a href='lift.html'>lift</a></span>(<span class='no'>docker_input</span>)
 <span class='co'>## Not run: ------------------------------------</span>
 <span class='co'># drender(docker_input)</span>

@@ -125,19 +125,37 @@
 <a href="#optional-metadata" class="anchor"></a>Optional metadata</h2>
 <ul>
 <li>
-<code>from</code> - <a href="https://docs.docker.com/reference/builder/#from">Base image</a> for building the docker image. Default is <code>"rocker/r-base:latest"</code>.</li>
+<p><code>from</code></p>
+<p><a href="https://docs.docker.com/reference/builder/#from">Base image</a> for building the docker image. Default is <code>"rocker/r-base:latest"</code>.</p>
+</li>
 <li>
-<code>latex</code> - Is TeX environment needed when rendering the document? Default is <code>false</code>.</li>
+<p><code>latex</code></p>
+<p>Is TeX environment needed when rendering the document? Default is <code>false</code>.</p>
+</li>
 <li>
-<code>pandoc</code> - Should we install pandoc in the container? Default is <code>true</code>. If pandoc was already installed in the base image, this should be set to <code>false</code> to avoid potential errors. For example, for <a href="https://registry.hub.docker.com/u/rocker/rstudio/"><code>rocker/rstudio</code></a> and <a href="https://www.bioconductor.org/help/docker/"><code>bioconductor/...</code></a> images, this option will be automatically set to <code>false</code> since they already have pandoc installed.</li>
+<p><code>pandoc</code></p>
+<p>Should we install pandoc in the container? Default is <code>true</code>.</p>
+<p>If pandoc was already installed in the base image, this should be set to <code>false</code> to avoid potential errors. For example, for <a href="https://registry.hub.docker.com/u/rocker/rstudio/"><code>rocker/rstudio</code> images</a> and <a href="https://www.bioconductor.org/help/docker/"><code>bioconductor/...</code> images</a>, this option will be automatically set to <code>false</code> since they already have pandoc installed.</p>
+</li>
 <li>
-<code>syslib</code> - Debian/Ubuntu system software packages depended in the document. Please also include software packages depended by the R packages included below, such as <code>gfortran</code> here required for compiling <code>randomForest</code>.</li>
+<p><code>syslib</code></p>
+<p>Debian/Ubuntu system software packages depended in the document.</p>
+<p>Please also include software packages depended by the R packages included below, such as <code>gfortran</code> here required for compiling <code>randomForest</code>.</p>
+</li>
 <li>
-<code>cranpkg</code> - CRAN packages depended in the document. If only <code>pkgname</code> is provided, <code>liftr</code> will install the <em>latest</em> version of the package on CRAN. To improve reproducibility, we recommend to use the package name with a specified version number: <code>pkgname/pkgversion</code> (e.g. <code>ggplot2/1.0.0</code>), even if the version is the current latest version. Note: <code>pkgversion</code> must be provided to install the archived versions of packages.</li>
+<p><code>cranpkg</code></p>
+<p>CRAN packages depended in the document.</p>
+<p>If only <code>pkgname</code> is provided, <code>liftr</code> will install the <em>latest</em> version of the package on CRAN. To improve reproducibility, we recommend to use the package name with a specified version number: <code>pkgname/pkgversion</code> (e.g. <code>ggplot2/1.0.0</code>), even if the version is the current latest version. Note: <code>pkgversion</code> must be provided to install the archived versions of packages.</p>
+</li>
 <li>
-<code>biocpkg</code> - Bioconductor packages depended in the document.</li>
+<p><code>biocpkg</code></p>
+<p>Bioconductor packages depended in the document.</p>
+</li>
 <li>
-<code>ghpkg</code> - GitHub R packages depended in the document. We accept the same format as the <code>repo</code> argument in <code>devtools::install_github</code>. Normally, <code>"username/repo"</code> would be sufficient.</li>
+<p><code>ghpkg</code></p>
+<p>GitHub R packages depended in the document.</p>
+<p>We accept the same format as the <code>repo</code> argument in <code>devtools::install_github</code>. Normally, <code>"username/repo"</code> is sufficient.</p>
+</li>
 </ul>
 </div>
 </div>
