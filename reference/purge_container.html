@@ -100,25 +100,26 @@ for rendering the R Markdown document, by running
 <code>docker stop</code> and <code>docker rm</code> commands.</p>
     
 
-    <pre><span class='fu'>purge_container</span>(<span class='no'>container_name</span>)</pre>
+    <pre><span class='fu'>purge_container</span>(<span class='no'>input</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>container_name</th>
-      <td><p>Name of the container to be stopped and removed.</p></td>
+      <th>input</th>
+      <td><p>The YAML file (default output of <code><a href='drender.html'>drender</a></code>)
+storing the information of the container to be stopped and removed.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>status</p>
+    <p>purge results</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># purge_container("liftr_container_uuid")</span>
+<span class='co'># purge_container("liftr-minimal.docker.yml")</span>
 <span class='co'>## ---------------------------------------------</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
