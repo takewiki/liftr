@@ -167,22 +167,23 @@
 <h1 class="hasAnchor">
 <a href="#containerize-the-document" class="anchor"></a>Containerize the Document</h1>
 <p>After adding proper <code>liftr</code> metadata to the document YAML data block, we can use <code><a href="../reference/lift.html">lift()</a></code> to parse the document and generate a Dockerfile.</p>
-<p>We will use <a href="https://github.com/road2stat/liftr/blob/master/inst/docker.Rmd">docker.Rmd</a> included in the package as an example. First, we create a new directory and copy the example document to the directory:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dir_docker =<span class="st"> "~/liftr_docker/"</span>
-<span class="kw">dir.create</span>(dir_docker)
-<span class="kw">file.copy</span>(<span class="kw">system.file</span>(<span class="st">"docker.Rmd"</span>, <span class="dt">package =</span> <span class="st">"liftr"</span>), dir_docker)</code></pre></div>
-<p>Then, we use <code><a href="../reference/lift.html">lift()</a></code> to parse the document and generate Dockerfile:</p>
+<p>We will use <a href="https://github.com/road2stat/liftr/blob/master/inst/examples/liftr-minimal.Rmd">a minimal example</a> included in the liftr package. First, we create a new directory and copy the R Markdown document into the directory:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dir_example =<span class="st"> "~/liftr-minimal/"</span>
+<span class="kw">dir.create</span>(dir_example)
+<span class="kw">file.copy</span>(<span class="kw">system.file</span>(<span class="st">"examples/liftr-minimal.Rmd"</span>, <span class="dt">package =</span> <span class="st">"liftr"</span>), dir_example)</code></pre></div>
+<p>Then, we use <code><a href="../reference/lift.html">lift()</a></code> to parse the document and generate the Dockerfile:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"liftr"</span>)
-docker_input =<span class="st"> </span><span class="kw">paste0</span>(dir_docker, <span class="st">"docker.Rmd"</span>)
-<span class="kw"><a href="../reference/lift.html">lift</a></span>(docker_input)</code></pre></div>
-<p>After successfully running <code><a href="../reference/lift.html">lift()</a></code> on <code>docker.Rmd</code>, the Dockerfile will be in the <code>~/liftr_docker/</code> directory.</p>
+
+input =<span class="st"> </span><span class="kw">paste0</span>(dir_example, <span class="st">"liftr-minimal.Rmd"</span>)
+<span class="kw"><a href="../reference/lift.html">lift</a></span>(input)</code></pre></div>
+<p>After successfully running <code><a href="../reference/lift.html">lift()</a></code>, the Dockerfile will be in the <code>~/liftr-minimal/</code> directory.</p>
 </div>
 <div id="render-the-document" class="section level1">
 <h1 class="hasAnchor">
 <a href="#render-the-document" class="anchor"></a>Render the Document</h1>
-<p>Now we can use <code><a href="../reference/render_docker.html">render_docker()</a></code> on <code>docker.Rmd</code> to render the document to a html file, under a Docker container:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/render_docker.html">render_docker</a></span>(docker_input)</code></pre></div>
-<p>The function <code><a href="../reference/render_docker.html">render_docker()</a></code> will parse the Dockerfile, build a new Docker image, and run a container to render the input document. If successfully rendered, the output <code>docker.html</code> will be in the <code>~/liftr_docker/</code> directory. You can also passed additional arguments in <code>rmarkdown::render</code> to this function.</p>
+<p>Now we can use <code><a href="../reference/render_docker.html">render_docker()</a></code> to render the document into an HTML file, under a Docker container:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/render_docker.html">render_docker</a></span>(input)</code></pre></div>
+<p>The function <code><a href="../reference/render_docker.html">render_docker()</a></code> will parse the Dockerfile, build a new Docker image, and run a Docker container to render the input document. If successfully rendered, the output <code>liftr-minimal.html</code> will be in the <code>~/liftr-minimal/</code> directory. You can also pass additional arguments in <code>rmarkdown::render</code> to this function.</p>
 <p>In order to share the dockerized R Markdown document, simply share the <code>.Rmd</code> file. Other users can use the <code><a href="../reference/lift.html">lift()</a></code> and <code><a href="../reference/render_docker.html">render_docker()</a></code> functions to render the document as above.</p>
 </div>
 <div id="system-requirements" class="section level1">
