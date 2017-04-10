@@ -175,20 +175,22 @@ R Markdown documents.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># copy example file</span>
-<span class='no'>dir_example</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='fu'>tempdir</span>(), <span class='st'>'/liftr-minimal/'</span>)
-<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/pq/v9qf21p11vnglgdplj46bsr00000gn/T//RtmpVIckWu/liftr-minimal' already exists</span></div><div class='input'><span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-minimal.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='no'>dir_example</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='fu'>tempdir</span>(), <span class='st'>'/liftr-tidyverse/'</span>)
+<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)
+<span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-tidyverse.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 <span class='co'># containerization</span>
-<span class='no'>input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-minimal.Rmd"</span>)
+<span class='no'>input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-tidyverse.Rmd"</span>)
 <span class='fu'><a href='lift.html'>lift</a></span>(<span class='no'>input</span>)
+
 <span class='co'>## Not run: ------------------------------------</span>
 <span class='co'># # render the document with Docker</span>
 <span class='co'># render_docker(input)</span>
 <span class='co'># </span>
 <span class='co'># # view rendered document</span>
-<span class='co'># browseURL(paste0(dir_example, "liftr-minimal.html"))</span>
+<span class='co'># browseURL(paste0(dir_example, "liftr-tidyverse.pdf"))</span>
 <span class='co'># </span>
 <span class='co'># # purge the generated Docker image</span>
-<span class='co'># purge_image(paste0(dir_example, "liftr-minimal.docker.yml"))</span>
+<span class='co'># purge_image(paste0(dir_example, "liftr-tidyverse.docker.yml"))</span>
 <span class='co'>## ---------------------------------------------</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
