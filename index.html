@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dockerize R Markdown Documents • liftr</title>
+<title>Containerize R Markdown Documents • liftr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
@@ -70,7 +70,7 @@
 <a href="#liftr" class="anchor"></a>liftr <a href="https://liftr.me"><img src="https://nanx.me/images/project-liftr.png" align="right" alt="logo" height="180" width="180"></a>
 </h1></div>
 
-<p>In essence, liftr aims to solve persistent reproducible reporting. To solve this problem, liftr extended the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, and uses Docker to containerize and render R Markdown documents.</p>
+<p>liftr aims to solve the problem of <em>persistent reproducible reporting</em>. To achieve this goal, it extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, and uses <a href="https://www.docker.com">Docker</a> to containerize and render R Markdown documents.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -78,8 +78,8 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"liftr"</span>)</code></pre></div>
 <p>Or try the development version on GitHub:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools::<span class="kw">install_github</span>(<span class="st">"road2stat/liftr"</span>)</code></pre></div>
-<p>See the <a href="https://cran.r-project.org/web/packages/liftr/vignettes/liftr-intro.html">package vignette</a> (can also be opened with <code><a href="articles/liftr-intro.html">vignette("liftr-intro")</a></code> in R) for a quick-start guide.</p>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"road2stat/liftr"</span>)</code></pre></div>
+<p>See the <a href="https://liftr.me/articles/">package vignettes</a> for a quick-start guide.</p>
 </div>
 <div id="video-demo" class="section level2">
 <h2 class="hasAnchor">

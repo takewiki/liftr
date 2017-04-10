@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dockerize R Markdown Documents — lift • liftr</title>
+<title>Containerize R Markdown Documents — lift • liftr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -91,7 +91,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Dockerize R Markdown Documents</h1>
+    <h1>Containerize R Markdown Documents</h1>
     </div>
 
     
@@ -121,7 +121,7 @@ If not provided, will be the same directory as <code>input</code>.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>After running lift, run <a href='drender.html'>drender</a> on the document to
+    <p>After running lift, run <a href='render_docker.html'>render_docker</a> on the document to
 render the Dockerized R Markdown document using Docker containers.
 See <code><a href='../articles/liftr-intro.html'>vignette('liftr-intro')</a></code> for details about the extended
 YAML front-matter metadata format used by liftr.</p>
@@ -130,7 +130,8 @@ YAML front-matter metadata format used by liftr.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># copy example file</span>
 <span class='no'>dir_example</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='fu'>tempdir</span>(), <span class='st'>'/liftr-minimal/'</span>)
-<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/pq/v9qf21p11vnglgdplj46bsr00000gn/T//Rtmpr9pKrp/liftr-minimal' already exists</span></div><div class='input'><span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-minimal.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)
+<span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-minimal.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 <span class='co'># containerization</span>
 <span class='no'>input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-minimal.Rmd"</span>)
 <span class='fu'>lift</span>(<span class='no'>input</span>)
@@ -144,37 +145,41 @@ YAML front-matter metadata format used by liftr.</p>
 #&gt;  [6] "RUN  rm -f /var/lib/dpkg/available \\"                                                                                                                            
 #&gt;  [7] "  &amp;&amp; rm -rf  /var/cache/apt/* \\"                                                                                                                                 
 #&gt;  [8] "  &amp;&amp; apt-get update -qq \\"                                                                                                                                       
-#&gt;  [9] "  &amp;&amp; apt-get install -t unstable -y --no-install-recommends \\"                                                                                                   
+#&gt;  [9] "  &amp;&amp; apt-get install -y --no-install-recommends \\"                                                                                                               
 #&gt; [10] "    ca-certificates \\"                                                                                                                                           
 #&gt; [11] "    libssl-dev \\"                                                                                                                                                
 #&gt; [12] "    libcurl4-openssl-dev \\"                                                                                                                                      
 #&gt; [13] "    libxml2-dev \\"                                                                                                                                               
-#&gt; [14] "    libssh2-1-dev \\"                                                                                                                                             
-#&gt; [15] "    git"                                                                                                                                                          
+#&gt; [14] "    git"                                                                                                                                                          
+#&gt; [15] ""                                                                                                                                                                 
 #&gt; [16] ""                                                                                                                                                                 
 #&gt; [17] ""                                                                                                                                                                 
 #&gt; [18] ""                                                                                                                                                                 
 #&gt; [19] ""                                                                                                                                                                 
-#&gt; [20] ""                                                                                                                                                                 
-#&gt; [21] "# Pre-compiled pandoc required by rmarkdown from cardcorp/r-pandoc"                                                                                               
-#&gt; [22] "RUN mkdir -p /opt/pandoc \\"                                                                                                                                      
-#&gt; [23] "  &amp;&amp; wget --no-check-certificate -O /tmp/pandoc.zip https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.13.1.zip \\"                                             
-#&gt; [24] "  &amp;&amp; unzip -j /tmp/pandoc.zip \"pandoc-1.13.1/linux/debian/x86_64/pandoc\" -d /opt/pandoc \\"                                                                     
-#&gt; [25] "  &amp;&amp; chmod +x /opt/pandoc/pandoc \\"                                                                                                                              
-#&gt; [26] "  &amp;&amp; ln -s /opt/pandoc/pandoc /usr/local/bin \\"                                                                                                                  
-#&gt; [27] "  &amp;&amp; unzip -j /tmp/pandoc.zip \"pandoc-1.13.1/linux/debian/x86_64/pandoc-citeproc\" -d /opt/pandoc \\"                                                            
-#&gt; [28] "  &amp;&amp; chmod +x \"/opt/pandoc/pandoc-citeproc\" \\"                                                                                                                 
-#&gt; [29] "  &amp;&amp; ln -s \"/opt/pandoc/pandoc-citeproc\" /usr/local/bin \\"                                                                                                     
-#&gt; [30] "  &amp;&amp; rm -f /tmp/pandoc.zip"                                                                                                                                       
-#&gt; [31] ""                                                                                                                                                                 
-#&gt; [32] "RUN Rscript -e \"install.packages(c('devtools','knitr','rmarkdown','shiny','RCurl'), repos = 'https://cran.rstudio.com')\""                                       
-#&gt; [33] ""                                                                                                                                                                 
-#&gt; [34] "RUN Rscript -e \"source('https://cdn.rawgit.com/road2stat/liftrlib/fab41764ea8b56677d05c70c86225774164b6ca0/install_cran.R');install_cran(c('tufte','kernlab'))\""
+#&gt; [20] "# Pre-compiled pandoc required by rmarkdown"                                                                                                                      
+#&gt; [21] "# Version from: https://github.com/metacran/r-builder/blob/master/pkg-build.sh"                                                                                   
+#&gt; [22] "# Scripts from: https://github.com/jangorecki/dockerfiles/blob/master/r-pkg/Dockerfile"                                                                           
+#&gt; [23] "RUN PANDOC_VER=\"1.17.2\" \\"                                                                                                                                     
+#&gt; [24] "  &amp;&amp; PANDOC_DIR=\"/opt/pandoc\" \\"                                                                                                                               
+#&gt; [25] "  &amp;&amp; PANDOC_URL=\"https://s3.amazonaws.com/rstudio-buildtools/pandoc-${PANDOC_VER}.zip\" \\"                                                                      
+#&gt; [26] "  &amp;&amp; mkdir -p \"${PANDOC_DIR}\" \\"                                                                                                                               
+#&gt; [27] "  &amp;&amp; wget --no-check-certificate -O /tmp/pandoc-${PANDOC_VER}.zip ${PANDOC_URL} \\"                                                                               
+#&gt; [28] "  &amp;&amp; unzip -j /tmp/pandoc-${PANDOC_VER}.zip \"pandoc-${PANDOC_VER}/linux/debian/x86_64/pandoc\" -d \"${PANDOC_DIR}\" \\"                                          
+#&gt; [29] "  &amp;&amp; chmod +x \"${PANDOC_DIR}/pandoc\" \\"                                                                                                                        
+#&gt; [30] "  &amp;&amp; ln -s \"${PANDOC_DIR}/pandoc\" /usr/local/bin \\"                                                                                                            
+#&gt; [31] "  &amp;&amp; unzip -j /tmp/pandoc-${PANDOC_VER}.zip \"pandoc-${PANDOC_VER}/linux/debian/x86_64/pandoc-citeproc\" -d \"${PANDOC_DIR}\" \\"                                 
+#&gt; [32] "  &amp;&amp; chmod +x \"${PANDOC_DIR}/pandoc-citeproc\" \\"                                                                                                               
+#&gt; [33] "  &amp;&amp; ln -s \"${PANDOC_DIR}/pandoc-citeproc\" /usr/local/bin \\"                                                                                                   
+#&gt; [34] "  &amp;&amp; rm -f /tmp/pandoc-${PANDOC_VER}.zip"                                                                                                                         
 #&gt; [35] ""                                                                                                                                                                 
-#&gt; [36] ""                                                                                                                                                                 
+#&gt; [36] "RUN Rscript -e \"install.packages(c('devtools','knitr','rmarkdown','shiny','RCurl'), repos = 'https://cran.rstudio.com')\""                                       
 #&gt; [37] ""                                                                                                                                                                 
-#&gt; [38] "RUN mkdir /liftrroot/"                                                                                                                                            
-#&gt; [39] "WORKDIR /liftrroot/"                                                                                                                                              </div></pre>
+#&gt; [38] "RUN Rscript -e \"source('https://cdn.rawgit.com/road2stat/liftrlib/fab41764ea8b56677d05c70c86225774164b6ca0/install_cran.R');install_cran(c('tufte','kernlab'))\""
+#&gt; [39] ""                                                                                                                                                                 
+#&gt; [40] ""                                                                                                                                                                 
+#&gt; [41] ""                                                                                                                                                                 
+#&gt; [42] "RUN mkdir /liftrroot/"                                                                                                                                            
+#&gt; [43] "WORKDIR /liftrroot/"                                                                                                                                              </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

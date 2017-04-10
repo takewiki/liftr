@@ -69,7 +69,7 @@
       <h1>A Quick Introduction to liftr</h1>
                         <h4 class="author">Nan Xiao &lt;<a href="https://nanx.me" class="uri">https://nanx.me</a>&gt;</h4>
             
-            <h4 class="date">2017-04-09</h4>
+            <h4 class="date">2017-04-10</h4>
           </div>
 
     
@@ -78,26 +78,26 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>In essence, liftr aims to solve persistent reproducible reporting. To solve this problem, liftr extended the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, and uses Docker to containerize and render R Markdown documents.</p>
+<p>In essence, liftr aims to solve the problem of <em>persistent reproducible reporting</em>. To achieve this goal, it extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, and uses <a href="https://www.docker.com">Docker</a> to containerize and render R Markdown documents.</p>
 </div>
 <div id="metadata-for-containerization" class="section level1">
 <h1 class="hasAnchor">
 <a href="#metadata-for-containerization" class="anchor"></a>Metadata for Containerization</h1>
-<p>To dockerize your R Markdown document, the first step is adding <code>liftr</code> options in the YAML front-matter of a document. For example:</p>
+<p>To containerize your R Markdown document, the first step is adding <code>liftr</code> options in the YAML front-matter of a document. For example:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span> <span class="st">"The Missing Example of liftr"</span>
-<span class="fu">author:</span> <span class="st">"Author Name"</span>
-<span class="fu">date:</span> <span class="st">"2017-04-09"</span>
+<span class="fu">title:</span><span class="at"> </span><span class="st">"The Missing Example of liftr"</span>
+<span class="fu">author:</span><span class="at"> </span><span class="st">"Author Name"</span>
+<span class="fu">date:</span><span class="at"> </span><span class="st">"2017-04-10"</span>
 <span class="fu">output:</span>
   <span class="fu">html_document:</span>
-    <span class="fu">highlight:</span> haddock
-    <span class="fu">theme:</span> readable
+    <span class="fu">highlight:</span><span class="at"> haddock</span>
+    <span class="fu">theme:</span><span class="at"> readable</span>
 <span class="fu">liftr:</span>
-  <span class="fu">maintainer:</span> <span class="st">"Author Name"</span>
-  <span class="fu">maintainer_email:</span> <span class="st">"name@example.com"</span>
-  <span class="fu">from:</span> <span class="st">"rocker/r-base:latest"</span>
-  <span class="fu">latex:</span> false
-  <span class="fu">pandoc:</span> true
+  <span class="fu">maintainer:</span><span class="at"> </span><span class="st">"Author Name"</span>
+  <span class="fu">maintainer_email:</span><span class="at"> </span><span class="st">"name@example.com"</span>
+  <span class="fu">from:</span><span class="at"> </span><span class="st">"rocker/r-base:latest"</span>
+  <span class="fu">latex:</span><span class="at"> false</span>
+  <span class="fu">pandoc:</span><span class="at"> true</span>
   <span class="fu">syslib:</span>
     <span class="kw">-</span> gfortran
     <span class="kw">-</span> samtools
@@ -180,18 +180,18 @@ docker_input =<span class="st"> </span><span class="kw">paste0</span>(dir_docker
 <div id="render-the-document" class="section level1">
 <h1 class="hasAnchor">
 <a href="#render-the-document" class="anchor"></a>Render the Document</h1>
-<p>Now we can use <code><a href="../reference/drender.html">drender()</a></code> on <code>docker.Rmd</code> to render the document to a html file, under a Docker container:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/drender.html">drender</a></span>(docker_input)</code></pre></div>
-<p>The <code><a href="../reference/drender.html">drender()</a></code> function will parse the Dockerfile, build a new Docker image, and run a container to render the input document. If successfully rendered, the output <code>docker.html</code> will be in the <code>~/liftr_docker/</code> directory. You can also passed additional arguments in <code>rmarkdown::render</code> to this function.</p>
-<p>In order to share the dockerized R Markdown document, simply share the <code>.Rmd</code> file. Other users can use the <code><a href="../reference/lift.html">lift()</a></code> and <code><a href="../reference/drender.html">drender()</a></code> functions to render the document as above.</p>
+<p>Now we can use <code><a href="../reference/render_docker.html">render_docker()</a></code> on <code>docker.Rmd</code> to render the document to a html file, under a Docker container:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/render_docker.html">render_docker</a></span>(docker_input)</code></pre></div>
+<p>The function <code><a href="../reference/render_docker.html">render_docker()</a></code> will parse the Dockerfile, build a new Docker image, and run a container to render the input document. If successfully rendered, the output <code>docker.html</code> will be in the <code>~/liftr_docker/</code> directory. You can also passed additional arguments in <code>rmarkdown::render</code> to this function.</p>
+<p>In order to share the dockerized R Markdown document, simply share the <code>.Rmd</code> file. Other users can use the <code><a href="../reference/lift.html">lift()</a></code> and <code><a href="../reference/render_docker.html">render_docker()</a></code> functions to render the document as above.</p>
 </div>
 <div id="system-requirements" class="section level1">
 <h1 class="hasAnchor">
 <a href="#system-requirements" class="anchor"></a>System Requirements</h1>
 <p>Docker is an essential system requirement when using liftr to render the R Markdown documents. Besides Linux, Docker Engine has a much improved near-native support for Mac and Windows since 2016, so there should not be a problem if you use the officially recommended installation. If not, simply make sure that you can run <code>docker</code> under shell. For example, to install Docker under Ubuntu:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install docker.io</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install docker.io</code></pre></div>
 <p>We should configure Docker to <a href="https://docs.docker.com/installation/ubuntulinux/#create-a-docker-group">run without sudo</a>. To avoid <code>sudo</code> when using the <code>docker</code> command, simply create a group named <code>docker</code> and add yourself to it:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> usermod -aG docker your-username</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> usermod -aG docker your-username</code></pre></div>
 <p>Here is a <a href="(https://docs.docker.com/installation/)">detailed guide</a> for installing Docker on the other platforms.</p>
 <hr>
 <p>Project website: <a href="https://liftr.me" class="uri">https://liftr.me</a></p>
