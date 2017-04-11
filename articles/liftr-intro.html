@@ -69,7 +69,7 @@
       <h1>A Quick Introduction to liftr</h1>
                         <h4 class="author">Nan Xiao &lt;<a href="https://nanx.me" class="uri">https://nanx.me</a>&gt;</h4>
             
-            <h4 class="date">2017-04-10</h4>
+            <h4 class="date">2017-04-11</h4>
           </div>
 
     
@@ -87,27 +87,26 @@
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">title:</span><span class="at"> </span><span class="st">"The Missing Example of liftr"</span>
 <span class="fu">author:</span><span class="at"> </span><span class="st">"Author Name"</span>
-<span class="fu">date:</span><span class="at"> </span><span class="st">"2017-04-10"</span>
+<span class="fu">date:</span><span class="at"> </span><span class="st">"2017-04-11"</span>
 <span class="fu">output:</span>
   <span class="fu">html_document:</span>
     <span class="fu">highlight:</span><span class="at"> haddock</span>
     <span class="fu">theme:</span><span class="at"> readable</span>
 <span class="fu">liftr:</span>
-  <span class="fu">maintainer:</span><span class="at"> </span><span class="st">"Author Name"</span>
-  <span class="fu">maintainer_email:</span><span class="at"> </span><span class="st">"name@example.com"</span>
+  <span class="fu">maintainer:</span><span class="at"> </span><span class="st">"Maintainer Name"</span>
+  <span class="fu">email:</span><span class="at"> </span><span class="st">"name@example.com"</span>
   <span class="fu">from:</span><span class="at"> </span><span class="st">"rocker/r-base:latest"</span>
-  <span class="fu">latex:</span><span class="at"> false</span>
   <span class="fu">pandoc:</span><span class="at"> true</span>
-  <span class="fu">syslib:</span>
+  <span class="fu">texlive:</span><span class="at"> false</span>
+  <span class="fu">sysdeps:</span>
     <span class="kw">-</span> gfortran
-    <span class="kw">-</span> samtools
-  <span class="fu">cranpkg:</span>
+  <span class="fu">cran:</span>
     <span class="kw">-</span> randomForest
-  <span class="fu">biocpkg:</span>
+  <span class="fu">bioc:</span>
     <span class="kw">-</span> Gviz
-    <span class="kw">-</span> ggbio
-  <span class="fu">ghpkg:</span>
+  <span class="fu">remotes:</span>
     <span class="kw">-</span> <span class="st">"road2stat/liftr"</span>
+  <span class="fu">include:</span><span class="at"> </span><span class="st">"DockerfileSnippet"</span>
 <span class="ot">---</span></code></pre></div>
 <p>All available metadata fields are expained below.</p>
 <div id="required-metadata" class="section level2">
@@ -116,11 +115,11 @@
 <ul>
 <li>
 <p><code>maintainer</code></p>
-<p>Maintainer name for the Dockerfile.</p>
+<p>Maintainer’s name for the Dockerfile.</p>
 </li>
 <li>
-<p><code>maintainer_email</code></p>
-<p>Maintainer email address for the Dockerfile.</p>
+<p><code>email</code></p>
+<p>Maintainer’s email address for the Dockerfile.</p>
 </li>
 </ul>
 </div>
@@ -133,32 +132,37 @@
 <p><a href="https://docs.docker.com/reference/builder/#from">Base image</a> for building the docker image. Default is <code>"rocker/r-base:latest"</code>.</p>
 </li>
 <li>
-<p><code>latex</code></p>
-<p>Is TeX environment needed when rendering the document? Default is <code>false</code>.</p>
-</li>
-<li>
 <p><code>pandoc</code></p>
 <p>Should we install pandoc in the container? Default is <code>true</code>.</p>
 <p>If pandoc was already installed in the base image, this should be set to <code>false</code> to avoid potential errors. For example, for <a href="https://registry.hub.docker.com/u/rocker/rstudio/"><code>rocker/rstudio</code> images</a> and <a href="https://www.bioconductor.org/help/docker/"><code>bioconductor/...</code> images</a>, this option will be automatically set to <code>false</code> since they already have pandoc installed.</p>
 </li>
 <li>
-<p><code>syslib</code></p>
+<p><code>texlive</code></p>
+<p>Is TeX environment needed when rendering the document? Default is <code>false</code>.</p>
+</li>
+<li>
+<p><code>sysdeps</code></p>
 <p>Debian/Ubuntu system software packages depended in the document.</p>
 <p>Please also include software packages depended by the R packages included below, such as <code>gfortran</code> here required for compiling <code>randomForest</code>.</p>
 </li>
 <li>
-<p><code>cranpkg</code></p>
+<p><code>cran</code></p>
 <p>CRAN packages depended in the document.</p>
 <p>If only <code>pkgname</code> is provided, <code>liftr</code> will install the <em>latest</em> version of the package on CRAN. To improve reproducibility, we recommend to use the package name with a specified version number: <code>pkgname/pkgversion</code> (e.g. <code>ggplot2/1.0.0</code>), even if the version is the current latest version. Note: <code>pkgversion</code> must be provided to install the archived versions of packages.</p>
 </li>
 <li>
-<p><code>biocpkg</code></p>
+<p><code>bioc</code></p>
 <p>Bioconductor packages depended in the document.</p>
 </li>
 <li>
-<p><code>ghpkg</code></p>
-<p>GitHub R packages depended in the document.</p>
-<p>We accept the same format as the <code>repo</code> argument in <code>devtools::install_github</code>. Normally, <code>"username/repo"</code> is sufficient.</p>
+<p><code>remotes</code></p>
+<p>Remote R packages that are not available from CRAN or Bioconductor.</p>
+<p>The remote package <a href="https://cran.r-project.org/web/packages/devtools/vignettes/dependencies.html">naming specification</a> from devtools is accepted here. Packages can be installed from GitHub, Bitbucket, Git/SVN servers, URLs, etc.</p>
+</li>
+<li>
+<p><code>include</code></p>
+<p>The path to a text file that contains custom Dockerfile snippet. The snippet will be included in the generated Dockerfile. This can be used to install additional software packages or further configure the system environment.</p>
+<p>Note that this file should be in the same directory as the input R Markdown file.</p>
 </li>
 </ul>
 </div>

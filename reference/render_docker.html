@@ -99,7 +99,7 @@
     
 
     <pre><span class='fu'>render_docker</span>(<span class='kw'>input</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>build_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>container_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>no_cache</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>purge_info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+  <span class='kw'>container_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cache</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>purge_info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
 
 <span class='fu'>drender</span>(<span class='no'>...</span>)</pre>
     
@@ -127,13 +127,12 @@ If not specified, it will use the same name as the input file.</p></td>
 If not specified, will use a randomly generated name.</p></td>
     </tr>
     <tr>
-      <th>no_cache</th>
+      <th>cache</th>
       <td><p>Logical. Controls the <code>--no-cache</code> argument
 in <code>docker run</code>. Setting this to be <code>TRUE</code> can accelerate
-the rendering speed substantially for repeated compilation since
-most of the Docker image layers will be cached, with only the
-changed (knitr related) image layer being updated.
-Default is <code>TRUE</code>.</p></td>
+the rendering speed substantially for repeated/interactive rendering
+since the Docker image layers will be cached, with only the changed
+(knitr related) image layer being updated. Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>purge_info</th>
