@@ -200,11 +200,10 @@ input =<span class="st"> </span><span class="kw">paste0</span>(dir_example, <spa
 <div id="system-requirements" class="section level1">
 <h1 class="hasAnchor">
 <a href="#system-requirements" class="anchor"></a>System Requirements</h1>
-<p>Docker is an essential system requirement when using liftr to render the R Markdown documents. Besides Linux, Docker Engine has a much improved near-native support for Mac and Windows since 2016, so there should not be a problem if you use the officially recommended installation. If not, simply make sure that you can run <code>docker</code> under shell. For example, to install Docker under Ubuntu:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install docker.io</code></pre></div>
-<p>We should configure Docker to <a href="https://docs.docker.com/installation/ubuntulinux/#create-a-docker-group">run without sudo</a>. To avoid <code>sudo</code> when using the <code>docker</code> command, simply create a group named <code>docker</code> and add yourself to it:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> usermod -aG docker your-username</code></pre></div>
-<p>Here is a <a href="https://docs.docker.com/engine/installation/">detailed guide</a> for installing Docker on the other platforms.</p>
+<p>Docker is an essential system requirement when using liftr to render the R Markdown documents. Here is a <a href="https://docs.docker.com/engine/installation/">detailed guide</a> for installing Docker on major operation systems.</p>
+<p>For Linux, we should configure Docker to <a href="https://docs.docker.com/engine/installation/linux/linux-postinstall/">run without sudo</a>. To avoid <code>sudo</code> when using the <code>docker</code> command, simply create a group named <code>docker</code> and add yourself to it:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> groupadd docker
+<span class="fu">sudo</span> usermod -aG docker <span class="va">$USER</span></code></pre></div>
 <hr>
 <p>Project website: <a href="https://liftr.me" class="uri">https://liftr.me</a></p>
 </div>
