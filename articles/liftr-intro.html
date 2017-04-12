@@ -83,15 +83,12 @@
 <div id="metadata-for-containerization" class="section level1">
 <h1 class="hasAnchor">
 <a href="#metadata-for-containerization" class="anchor"></a>Metadata for containerization</h1>
-<p>To containerize your R Markdown document, the first step is adding <code>liftr</code> options in the YAML front-matter of a document. For example:</p>
+<p>To containerize your R Markdown document, the first step is adding <code>liftr</code> fields to the YAML metadata section of the document. For example:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">title:</span><span class="at"> </span><span class="st">"The Missing Example of liftr"</span>
 <span class="fu">author:</span><span class="at"> </span><span class="st">"Author Name"</span>
 <span class="fu">date:</span><span class="at"> </span><span class="st">"2017-04-11"</span>
-<span class="fu">output:</span>
-  <span class="fu">html_document:</span>
-    <span class="fu">highlight:</span><span class="at"> haddock</span>
-    <span class="fu">theme:</span><span class="at"> readable</span>
+<span class="fu">output:</span><span class="at"> rmarkdown::html_document</span>
 <span class="fu">liftr:</span>
   <span class="fu">maintainer:</span><span class="at"> </span><span class="st">"Maintainer Name"</span>
   <span class="fu">email:</span><span class="at"> </span><span class="st">"name@example.com"</span>
@@ -101,7 +98,7 @@
   <span class="fu">sysdeps:</span>
     <span class="kw">-</span> gfortran
   <span class="fu">cran:</span>
-    <span class="kw">-</span> randomForest
+    <span class="kw">-</span> glmnet
   <span class="fu">bioc:</span>
     <span class="kw">-</span> Gviz
   <span class="fu">remotes:</span>
@@ -129,7 +126,7 @@
 <ul>
 <li>
 <p><code>from</code></p>
-<p><a href="https://docs.docker.com/reference/builder/#from">Base image</a> for building the docker image. Default is <code>"rocker/r-base:latest"</code>.</p>
+<p>Base image for building the docker image. Default is <code>"rocker/r-base:latest"</code>. For R users, the images offered by the <a href="https://github.com/rocker-org">rocker project</a> and <a href="https://bioconductor.org/help/docker/">Bioconductor</a> can be considered first.</p>
 </li>
 <li>
 <p><code>pandoc</code></p>
@@ -138,12 +135,12 @@
 </li>
 <li>
 <p><code>texlive</code></p>
-<p>Is TeX environment needed when rendering the document? Default is <code>false</code>.</p>
+<p>Is TeX environment needed when rendering the document? Default is <code>false</code>. Should be <code>true</code> particularly when the output format is PDF.</p>
 </li>
 <li>
 <p><code>sysdeps</code></p>
 <p>Debian/Ubuntu system software packages depended in the document.</p>
-<p>Please also include software packages depended by the R packages included below, such as <code>gfortran</code> here required for compiling <code>randomForest</code>.</p>
+<p>Please also include software packages depended by the R packages below. For example, here <code>gfortran</code> is required for compiling <code>glmnet</code>.</p>
 </li>
 <li>
 <p><code>cran</code></p>
