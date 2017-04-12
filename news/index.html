@@ -96,9 +96,9 @@
     </div>
 
     <div class="contents">
-    <div id="liftr-0-4-9000-2017-04-06" class="section level1">
+    <div id="liftr-0-5-2017-04-11" class="section level1">
 <h1 class="hasAnchor">
-<a href="#liftr-0-4-9000-2017-04-06" class="anchor"></a>liftr 0.4.9000 (2017-04-06)</h1>
+<a href="#liftr-0-5-2017-04-11" class="anchor"></a>liftr 0.5 (2017-04-11)</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
@@ -108,7 +108,7 @@
 <li>Added new argument <code>purge_info</code> to <code><a href="../reference/render_docker.html">render_docker()</a></code>. This argument controls whether to output the Docker image and container name into an YAML file for purging purposes later.</li>
 <li>Separate the creation and removal of Docker containers and images: removed the old argument <code>reset</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code>; added <code><a href="../reference/purge_container.html">purge_container()</a></code> and <code><a href="../reference/purge_image.html">purge_image()</a></code> for cleaning up.</li>
 <li>The <code>ghpkg</code> field is now deprecated. The new <code>remotes</code> field supports <a href="https://cran.r-project.org/web/packages/devtools/vignettes/dependencies.html">devtools remote packages format</a>. Now packages can be installed from GitHub, Bitbucket, Git/SVN servers, URLs, etc.</li>
-<li>Added new metadata field <code>include</code> for including any custom Dockerfile snippets into the final Dockerfile. This fixes [<a href="https://github.com/road2stat/liftr/issues/21">#21</a>].</li>
+<li>Added new metadata field <code>include</code> for including any custom Dockerfile snippets into the final Dockerfile. This also fixes <a href="https://github.com/road2stat/liftr/issues/21">#21</a>.</li>
 </ul>
 </div>
 <div id="improvements" class="section level2">
@@ -200,7 +200,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#liftr-0-4-9000-2017-04-06">0.4.9000</a></li>
+        <li><a href="#liftr-0-5-2017-04-11">0.5</a></li>
         <li><a href="#liftr-0-4-2016-08-05">0.4</a></li>
         <li><a href="#liftr-0-3-2015-10-10">0.3</a></li>
         <li><a href="#liftr-0-2-2015-07-30">0.2</a></li>
