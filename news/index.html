@@ -96,12 +96,23 @@
     </div>
 
     <div class="contents">
-    <div id="liftr-0-5-2017-04-11" class="section level1">
+    <div id="liftr-0-6-2017-07-23" class="section level1">
 <h1 class="hasAnchor">
-<a href="#liftr-0-5-2017-04-11" class="anchor"></a>liftr 0.5 (2017-04-11)</h1>
+<a href="#liftr-0-6-2017-07-23" class="anchor"></a>liftr 0.6 (2017-07-23)</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
+<ul>
+<li>Supports parsing the liftr metadata from a standalone YAML congfiguration file. This feature makes it possible to run liftr without editing the original R Markdown file [<a href="https://github.com/road2stat/liftr/issues/22">#22</a>].</li>
+</ul>
+</div>
+</div>
+    <div id="liftr-0-5-2017-04-11" class="section level1">
+<h1 class="hasAnchor">
+<a href="#liftr-0-5-2017-04-11" class="anchor"></a>liftr 0.5 (2017-04-11)</h1>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added RStudio addins as shortcuts to containerize and render R Markdown documents.</li>
 <li>Added new argument <code>cache</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code> to improve rendering speed significantly by caching Docker image layers [<a href="https://github.com/road2stat/liftr/issues/18">#18</a>].</li>
@@ -147,9 +158,9 @@
     <div id="liftr-0-3-2015-10-10" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-3-2015-10-10" class="anchor"></a>liftr 0.3 (2015-10-10)</h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New Features</h2>
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
 <li>Support specifying CRAN package version precisely.</li>
 </ul>
@@ -174,9 +185,9 @@
 <a href="https://github.com/rstudio/rmarkdown/issues/470">Correctly rendered</a> the vignette with Pandoc 1.15.0.6.</li>
 </ul>
 </div>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New Features</h2>
+<a href="#new-features-3" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added new R Markdown header option <code>pandoc</code> to control Pandoc installation. Automatically set this to <code>false</code> for <code>rocker/rstudio</code> and <code>bioconductor/...</code> images. This solves <a href="https://github.com/road2stat/liftr/issues/12">#12</a>.</li>
 </ul>
@@ -185,9 +196,9 @@
     <div id="liftr-0-1-2015-07-10" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-1-2015-07-10" class="anchor"></a>liftr 0.1 (2015-07-10)</h1>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New Features</h2>
+<a href="#new-features-4" class="anchor"></a>New Features</h2>
 <ul>
 <li>Initial version of liftr. This version implemented two functions <code><a href="../reference/lift.html">lift()</a></code> and <code><a href="../reference/render_docker.html">drender()</a></code>. They provide basic support for dockerizing R Markdown documents, with support for running Rabix workflows/tools before rendering R Markdown documents in Docker containers.</li>
 </ul>
@@ -200,6 +211,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#liftr-0-6-2017-07-23">0.6</a></li>
         <li><a href="#liftr-0-5-2017-04-11">0.5</a></li>
         <li><a href="#liftr-0-4-2016-08-05">0.4</a></li>
         <li><a href="#liftr-0-3-2015-10-10">0.3</a></li>

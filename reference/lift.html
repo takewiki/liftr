@@ -99,7 +99,8 @@
 <code>Dockerfile</code> based on the liftr metadata in the RMD document.</p>
     
 
-    <pre class="usage"><span class='fu'>lift</span>(<span class='kw'>input</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>lift</span>(<span class='kw'>input</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_config</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>config_file</span> <span class='kw'>=</span> <span class='st'>"_liftr.yml"</span>,
+  <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -107,6 +108,17 @@
     <tr>
       <th>input</th>
       <td><p>Input (R Markdown) file.</p></td>
+    </tr>
+    <tr>
+      <th>use_config</th>
+      <td><p>If <code>TRUE</code>, will parse the liftr metadata from
+a YAML file, if <code>FALSE</code>, will parse such information from the
+metadata section in the R Markdown file. Default is <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>config_file</th>
+      <td><p>Name of the YAML configuration file, under the
+same directory as the input file. Default is <code>"_liftr.yml"</code>.</p></td>
     </tr>
     <tr>
       <th>output_dir</th>
