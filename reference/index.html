@@ -80,7 +80,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/liftr-addins.html">RStudio Addins for liftr</a>
+    </li>
+    <li>
       <a href="../articles/liftr-intro.html">A Quick Introduction to liftr</a>
+    </li>
+    <li>
+      <a href="../articles/liftr-tidyverse.html">Explore tidyverse with liftr</a>
     </li>
   </ul>
 </li>
@@ -124,8 +130,34 @@
       <tbody>
         <tr>
           <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
+            <h2 id="section-docker-installation" class="hasAnchor"><a href="#section-docker-installation" class="anchor"></a>Docker Installation</h2>
+            <p class="section-desc"><p>Functions for guiding Docker installation and checking Docker status.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="install_docker.html">install_docker</a></code> </p>
+          </td>
+          <td><p>Installation Helper for Docker Engine</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="check_docker_install.html">check_docker_install</a></code> </p>
+          </td>
+          <td><p>Check if Docker was Installed</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="check_docker_running.html">check_docker_running</a></code> </p>
+          </td>
+          <td><p>Check if Docker Daemon is Running</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-containerization-and-rendering" class="hasAnchor"><a href="#section-containerization-and-rendering" class="anchor"></a>Containerization and Rendering</h2>
+            <p class="section-desc"><p>Functions for containerizing and rendering R Markdown documents.</p></p>
           </th>
         </tr>
         <tr>
@@ -137,27 +169,53 @@
         </tr><tr>
           <!--  -->
           <td>
+            <p><code><a href="render_docker.html">render_docker</a></code> <code><a href="render_docker.html">drender</a></code> </p>
+          </td>
+          <td><p>Render Containerized R Markdown Documents</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
             <p><code><a href="liftr-package.html">liftr-package</a></code> </p>
           </td>
           <td><p>Containerize R Markdown Documents</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-docker-housekeeping" class="hasAnchor"><a href="#section-docker-housekeeping" class="anchor"></a>Docker Housekeeping</h2>
+            <p class="section-desc"><p>Functions for cleaning up dangling or existing containers and images“.</p></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="prune_container.html">prune_container</a></code> <code><a href="prune_container.html">purge_container</a></code> </p>
+          </td>
+          <td><p>Remove Specific Docker Containers</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="purge_container.html">purge_container</a></code> </p>
+            <p><code><a href="prune_image.html">prune_image</a></code> <code><a href="prune_image.html">purge_image</a></code> </p>
           </td>
-          <td><p>Purge Docker Container</p></td>
+          <td><p>Remove Specific Docker Images</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="purge_image.html">purge_image</a></code> </p>
+            <p><code><a href="prune_container_auto.html">prune_container_auto</a></code> </p>
           </td>
-          <td><p>Purge Docker Image</p></td>
+          <td><p>Remove Dangling Docker Containers</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="render_docker.html">render_docker</a></code> <code><a href="render_docker.html">drender</a></code> </p>
+            <p><code><a href="prune_image_auto.html">prune_image_auto</a></code> </p>
           </td>
-          <td><p>Render Dockerized R Markdown Documents</p></td>
+          <td><p>Remove Dangling Docker Images</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="prune_all_auto.html">prune_all_auto</a></code> </p>
+          </td>
+          <td><p>Remove Docker Containers, Images, and Networks</p></td>
         </tr>
       </tbody>
       </table>
@@ -167,7 +225,9 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-docker-installation">Docker Installation</a></li>
+      <li><a href="#section-containerization-and-rendering">Containerization and Rendering</a></li>
+      <li><a href="#section-docker-housekeeping">Docker Housekeeping</a></li>
     </ul>
   </div>
 </div>

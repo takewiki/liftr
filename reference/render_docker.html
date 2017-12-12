@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render Dockerized R Markdown Documents — render_docker • liftr</title>
+<title>Render Containerized R Markdown Documents — render_docker • liftr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -80,7 +80,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/liftr-addins.html">RStudio Addins for liftr</a>
+    </li>
+    <li>
       <a href="../articles/liftr-intro.html">A Quick Introduction to liftr</a>
+    </li>
+    <li>
+      <a href="../articles/liftr-tidyverse.html">Explore tidyverse with liftr</a>
     </li>
   </ul>
 </li>
@@ -107,16 +113,16 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Render Dockerized R Markdown Documents</h1>
+    <h1>Render Containerized R Markdown Documents</h1>
     </div>
 
     
-    <p>Render dockerized R Markdown documents using Docker containers.</p>
+    <p>Render R Markdown documents using Docker.</p>
     
 
     <pre class="usage"><span class='fu'>render_docker</span>(<span class='kw'>input</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>container_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cache</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>purge_info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>build_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>run_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>)
+  <span class='kw'>cache</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>build_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>run_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>prune</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>prune_info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
 
 <span class='fu'>drender</span>(<span class='no'>...</span>)</pre>
     
@@ -146,12 +152,6 @@ since the Docker image layers will be cached, with only the changed
 (knitr related) image layer being updated. Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
-      <th>purge_info</th>
-      <td><p>Logical. Should we write the Docker container and
-image information to a YAML file for purging later?
-Default is <code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
       <th>build_args</th>
       <td><p>A character string specifying additional
 <code>docker build</code> arguments. For example,
@@ -161,6 +161,18 @@ Default is <code>TRUE</code>.</p></td>
       <th>run_args</th>
       <td><p>A character string specifying additional
 <code>docker run</code> arguments. For example, <code>--privileged=true</code>.</p></td>
+    </tr>
+    <tr>
+      <th>prune</th>
+      <td><p>Logical. Should we clean up all dangling containers,
+volumes, networks, and images in case the rendering was not successful?
+Default is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>prune_info</th>
+      <td><p>Logical. Should we save the Docker container and
+image information to a YAML file (name ended with <code>.docker.yml</code>)
+for manual pruning or inspections later? Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -188,16 +200,17 @@ input file.</p></li>
     <p>Before using this function, please run <code><a href='lift.html'>lift</a></code> on the
 RMD document first to generate the <code>Dockerfile</code>.</p>
 <p>After a successful rendering, you will be able to clean up the
-Docker image with <code><a href='purge_image.html'>purge_image</a></code>.</p>
+Docker image with <code><a href='prune_image.html'>prune_image</a></code>.</p>
 <p>Please see <code><a href='../articles/liftr-intro.html'>vignette('liftr-intro')</a></code> for details of the extended
-YAML metadata format and system requirements for rendering dockerized
-R Markdown documents.</p>
+YAML metadata format and system requirements for writing and rendering
+containerized R Markdown documents.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># copy example file</span>
 <span class='no'>dir_example</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='fu'>tempdir</span>(), <span class='st'>"/liftr-tidyverse/"</span>)
-<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: '/var/folders/pq/v9qf21p11vnglgdplj46bsr00000gn/T//Rtmpc0b011/liftr-tidyverse' already exists</span></div><div class='input'><span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-tidyverse.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='fu'>dir.create</span>(<span class='no'>dir_example</span>)
+<span class='fu'>file.copy</span>(<span class='fu'>system.file</span>(<span class='st'>"examples/liftr-tidyverse.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"liftr"</span>), <span class='no'>dir_example</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 <span class='co'># containerization</span>
 <span class='no'>input</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-tidyverse.Rmd"</span>)
 <span class='fu'><a href='lift.html'>lift</a></span>(<span class='no'>input</span>)</div><span class='co'># NOT RUN {</span>
@@ -207,8 +220,8 @@ R Markdown documents.</p>
 <span class='co'># view rendered document</span>
 <span class='fu'>browseURL</span>(<span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-tidyverse.pdf"</span>))
 
-<span class='co'># purge the generated Docker image</span>
-<span class='fu'><a href='purge_image.html'>purge_image</a></span>(<span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-tidyverse.docker.yml"</span>))
+<span class='co'># remove the generated Docker image</span>
+<span class='fu'><a href='prune_image.html'>prune_image</a></span>(<span class='fu'>paste0</span>(<span class='no'>dir_example</span>, <span class='st'>"liftr-tidyverse.docker.yml"</span>))
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -80,7 +80,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/liftr-addins.html">RStudio Addins for liftr</a>
+    </li>
+    <li>
       <a href="../articles/liftr-intro.html">A Quick Introduction to liftr</a>
+    </li>
+    <li>
+      <a href="../articles/liftr-tidyverse.html">Explore tidyverse with liftr</a>
     </li>
   </ul>
 </li>
@@ -112,12 +118,37 @@
     </div>
 
     <div class="contents">
-    <div id="liftr-0-7-2017-09-29" class="section level1">
+    <div id="liftr-0-8-2017-12-12" class="section level1">
 <h1 class="hasAnchor">
-<a href="#liftr-0-7-2017-09-29" class="anchor"></a>liftr 0.7 (2017-09-29)</h1>
+<a href="#liftr-0-8-2017-12-12" class="anchor"></a>liftr 0.8 (2017-12-12)</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New Features</h2>
+<ul>
+<li>Add a new argument <code>prune</code> in <code>render_docker</code> to automatically clean up dangling containers and images in case the image build or compilation was not successful (<a href="https://github.com/road2stat/liftr/issues/27">#27</a>). We thank Nicolas Roelandt for suggesting this feature (<a href="https://github.com/road2stat/liftr/issues/25">#25</a>).</li>
+<li>Added functions <code>prune_container_auto</code>, <code>prune_image_auto</code>, and <code>prune_all_auto</code> for automatic pruning of dangling containers or images without particular names specified.</li>
+<li>Added function <code>install_docker</code> for guiding the installation of Docker.</li>
+<li>Added function <code>check_docker_install</code>for checking if Docker is properly installed and discoverable.</li>
+<li>Added function <code>check_docker_running</code> for checking if Docker daemon is running.</li>
+</ul>
+</div>
 <div id="improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improvements" class="anchor"></a>Improvements</h2>
+<ul>
+<li>The argument <code>purge_info</code> was renamed to <code>prune_info</code> in <code>render_docker</code>.</li>
+<li>Previous functions for cleaning up specific Docker containers and images <code>purge_container</code> and <code>purge_image</code> are now renamed to <code>prune_container</code> and <code>prune_image</code>.</li>
+<li>RStudio addin: the old addin for removing Docker images was refactored into two new addins: one for removing dangling containers and images, one for removing the successfully built image that corresponds to the current document.</li>
+<li>Added two new vignettes. Check out <code><a href="../articles/liftr-addins.html">vignette("liftr-addins")</a></code> and <code><a href="../articles/liftr-tidyverse.html">vignette("liftr-tidyverse")</a></code>.</li>
+</ul>
+</div>
+</div>
+    <div id="liftr-0-7-2017-09-29" class="section level1">
+<h1 class="hasAnchor">
+<a href="#liftr-0-7-2017-09-29" class="anchor"></a>liftr 0.7 (2017-09-29)</h1>
+<div id="improvements-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improvements-1" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Use system font stack instead of Google Fonts in vignettes to avoid pandoc SSL issue.</li>
 </ul>
@@ -126,9 +157,9 @@
     <div id="liftr-0-6-2017-07-23" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-6-2017-07-23" class="anchor"></a>liftr 0.6 (2017-07-23)</h1>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New Features</h2>
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>Supports parsing the liftr metadata from a standalone YAML congfiguration file. This feature makes it possible to run liftr without editing the original R Markdown file [<a href="https://github.com/road2stat/liftr/issues/22">#22</a>].</li>
 </ul>
@@ -137,21 +168,21 @@
     <div id="liftr-0-5-2017-04-11" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-5-2017-04-11" class="anchor"></a>liftr 0.5 (2017-04-11)</h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New Features</h2>
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added RStudio addins as shortcuts to containerize and render R Markdown documents.</li>
 <li>Added new argument <code>cache</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code> to improve rendering speed significantly by caching Docker image layers [<a href="https://github.com/road2stat/liftr/issues/18">#18</a>].</li>
 <li>Added new argument <code>purge_info</code> to <code><a href="../reference/render_docker.html">render_docker()</a></code>. This argument controls whether to output the Docker image and container name into an YAML file for purging purposes later.</li>
-<li>Separate the creation and removal of Docker containers and images: removed the old argument <code>reset</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code>; added <code><a href="../reference/purge_container.html">purge_container()</a></code> and <code><a href="../reference/purge_image.html">purge_image()</a></code> for cleaning up.</li>
+<li>Separate the creation and removal of Docker containers and images: removed the old argument <code>reset</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code>; added <code><a href="../reference/prune_container.html">purge_container()</a></code> and <code><a href="../reference/prune_image.html">purge_image()</a></code> for cleaning up.</li>
 <li>The <code>ghpkg</code> field is now deprecated. The new <code>remotes</code> field supports <a href="https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd">devtools remote package name format</a>. Now packages can be installed from GitHub, Bitbucket, Git/SVN servers, URLs, etc.</li>
 <li>Added new metadata field <code>include</code> for including any custom Dockerfile snippets into the final Dockerfile. This also fixes <a href="https://github.com/road2stat/liftr/issues/21">#21</a>.</li>
 </ul>
 </div>
-<div id="improvements-1" class="section level2">
+<div id="improvements-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements-1" class="anchor"></a>Improvements</h2>
+<a href="#improvements-2" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Renamed <code><a href="../reference/render_docker.html">drender()</a></code> to <code><a href="../reference/render_docker.html">render_docker()</a></code>. <code><a href="../reference/render_docker.html">drender()</a></code> is now deprecated.</li>
 <li>Better naming scheme for <code>liftr</code> metadata fields.</li>
@@ -174,9 +205,9 @@
     <div id="liftr-0-4-2016-08-05" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-4-2016-08-05" class="anchor"></a>liftr 0.4 (2016-08-05)</h1>
-<div id="improvements-2" class="section level2">
+<div id="improvements-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements-2" class="anchor"></a>Improvements</h2>
+<a href="#improvements-3" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Maintainer email updates.</li>
 </ul>
@@ -185,16 +216,16 @@
     <div id="liftr-0-3-2015-10-10" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-3-2015-10-10" class="anchor"></a>liftr 0.3 (2015-10-10)</h1>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New Features</h2>
+<a href="#new-features-3" class="anchor"></a>New Features</h2>
 <ul>
 <li>Support specifying CRAN package version precisely.</li>
 </ul>
 </div>
-<div id="improvements-3" class="section level2">
+<div id="improvements-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#improvements-3" class="anchor"></a>Improvements</h2>
+<a href="#improvements-4" class="anchor"></a>Improvements</h2>
 <ul>
 <li>Modified examples in documentation to comply with the lastest CRAN Repository Policy.</li>
 <li>Installing packages with https.</li>
@@ -212,9 +243,9 @@
 <a href="https://github.com/rstudio/rmarkdown/issues/470">Correctly rendered</a> the vignette with Pandoc 1.15.0.6.</li>
 </ul>
 </div>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New Features</h2>
+<a href="#new-features-4" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added new R Markdown header option <code>pandoc</code> to control Pandoc installation. Automatically set this to <code>false</code> for <code>rocker/rstudio</code> and <code>bioconductor/...</code> images. This solves <a href="https://github.com/road2stat/liftr/issues/12">#12</a>.</li>
 </ul>
@@ -223,9 +254,9 @@
     <div id="liftr-0-1-2015-07-10" class="section level1">
 <h1 class="hasAnchor">
 <a href="#liftr-0-1-2015-07-10" class="anchor"></a>liftr 0.1 (2015-07-10)</h1>
-<div id="new-features-4" class="section level2">
+<div id="new-features-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-4" class="anchor"></a>New Features</h2>
+<a href="#new-features-5" class="anchor"></a>New Features</h2>
 <ul>
 <li>Initial version of liftr. This version implemented two functions <code><a href="../reference/lift.html">lift()</a></code> and <code><a href="../reference/render_docker.html">drender()</a></code>. They provide basic support for dockerizing R Markdown documents, with support for running Rabix workflows/tools before rendering R Markdown documents in Docker containers.</li>
 </ul>
@@ -238,6 +269,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#liftr-0-8-2017-12-12">0.8</a></li>
         <li><a href="#liftr-0-7-2017-09-29">0.7</a></li>
         <li><a href="#liftr-0-6-2017-07-23">0.6</a></li>
         <li><a href="#liftr-0-5-2017-04-11">0.5</a></li>
