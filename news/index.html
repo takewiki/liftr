@@ -125,19 +125,19 @@
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
 <ul>
-<li>Add a new argument <code>prune</code> in <code>render_docker</code> to automatically clean up dangling containers and images in case the image build or compilation was not successful (<a href="https://github.com/road2stat/liftr/issues/27">#27</a>). We thank Nicolas Roelandt for suggesting this feature (<a href="https://github.com/road2stat/liftr/issues/25">#25</a>).</li>
-<li>Added functions <code>prune_container_auto</code>, <code>prune_image_auto</code>, and <code>prune_all_auto</code> for automatic pruning of dangling containers or images without particular names specified.</li>
-<li>Added function <code>install_docker</code> for guiding the installation of Docker.</li>
-<li>Added function <code>check_docker_install</code>for checking if Docker is properly installed and discoverable.</li>
-<li>Added function <code>check_docker_running</code> for checking if Docker daemon is running.</li>
+<li>Add a new argument <code>prune</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code> to automatically clean up dangling containers and images in case the image build or compilation was not successful (<a href="https://github.com/road2stat/liftr/issues/27">#27</a>). We thank Nicolas Roelandt for suggesting this feature (<a href="https://github.com/road2stat/liftr/issues/25">#25</a>).</li>
+<li>Added functions <code><a href="../reference/prune_container_auto.html">prune_container_auto()</a></code>, <code><a href="../reference/prune_image_auto.html">prune_image_auto()</a></code>, and <code><a href="../reference/prune_all_auto.html">prune_all_auto()</a></code> for automatic pruning of dangling containers or images without particular names specified.</li>
+<li>Added function <code><a href="../reference/install_docker.html">install_docker()</a></code> for guiding the installation of Docker.</li>
+<li>Added function <code><a href="../reference/check_docker_install.html">check_docker_install()</a></code>for checking if Docker is properly installed and discoverable.</li>
+<li>Added function <code><a href="../reference/check_docker_running.html">check_docker_running()</a></code> for checking if Docker daemon is running.</li>
 </ul>
 </div>
 <div id="improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improvements" class="anchor"></a>Improvements</h2>
 <ul>
-<li>The argument <code>purge_info</code> was renamed to <code>prune_info</code> in <code>render_docker</code>.</li>
-<li>Previous functions for cleaning up specific Docker containers and images <code>purge_container</code> and <code>purge_image</code> are now renamed to <code>prune_container</code> and <code>prune_image</code>.</li>
+<li>The argument <code>purge_info</code> was renamed to <code>prune_info</code> in <code><a href="../reference/render_docker.html">render_docker()</a></code>.</li>
+<li>Previous functions for cleaning up specific Docker containers and images <code><a href="../reference/prune_container.html">purge_container()</a></code> and <code><a href="../reference/prune_image.html">purge_image()</a></code> are now renamed to <code><a href="../reference/prune_container.html">prune_container()</a></code> and <code><a href="../reference/prune_image.html">prune_image()</a></code>.</li>
 <li>RStudio addin: the old addin for removing Docker images was refactored into two new addins: one for removing dangling containers and images, one for removing the successfully built image that corresponds to the current document.</li>
 <li>Added two new vignettes. Check out <code><a href="../articles/liftr-addins.html">vignette("liftr-addins")</a></code> and <code><a href="../articles/liftr-tidyverse.html">vignette("liftr-tidyverse")</a></code>.</li>
 </ul>
