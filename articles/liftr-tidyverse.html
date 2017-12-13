@@ -109,7 +109,7 @@
 </div>
 <div id="example-document" class="section level1">
 <h1 class="hasAnchor">
-<a href="#example-document" class="anchor"></a>Example Document</h1>
+<a href="#example-document" class="anchor"></a>Example document</h1>
 <p>Let’s create a new folder first and copy the example R Markdown document to this folder:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">"~/liftr-tidyverse/"</span>)
 
@@ -145,14 +145,14 @@ input =<span class="st"> </span><span class="kw">paste0</span>(path, <span class
 </div>
 <div id="containerize-the-document" class="section level1">
 <h1 class="hasAnchor">
-<a href="#containerize-the-document" class="anchor"></a>Containerize the Document</h1>
+<a href="#containerize-the-document" class="anchor"></a>Containerize the document</h1>
 <p>Let’s containerize this document by generating a <code>Dockerfile</code> for it, using <code><a href="http://www.rdocumentation.org/packages/liftr/topics/lift">liftr::lift</a></code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/lift.html">lift</a></span>(input)</code></pre></div>
 <p>A file named <code>Dockerfile</code> will be generated under the same directory of the input RMD file. It contains the necessary commands for building the Docker container for rendering the document.</p>
 </div>
 <div id="render-the-document" class="section level1">
 <h1 class="hasAnchor">
-<a href="#render-the-document" class="anchor"></a>Render the Document</h1>
+<a href="#render-the-document" class="anchor"></a>Render the document</h1>
 <p>We can use <code><a href="../reference/render_docker.html">render_docker()</a></code> to start the Docker container, and render the document inside it:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/render_docker.html">render_docker</a></span>(input)</code></pre></div>
 <p>Let’s view the rendered document:</p>
@@ -186,9 +186,9 @@ input =<span class="st"> </span><span class="kw">paste0</span>(path, <span class
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
       <li><a href="#install-docker">Install Docker</a></li>
-      <li><a href="#example-document">Example Document</a></li>
-      <li><a href="#containerize-the-document">Containerize the Document</a></li>
-      <li><a href="#render-the-document">Render the Document</a></li>
+      <li><a href="#example-document">Example document</a></li>
+      <li><a href="#containerize-the-document">Containerize the document</a></li>
+      <li><a href="#render-the-document">Render the document</a></li>
       <li><a href="#housekeeping">Housekeeping</a></li>
       <li><a href="#references">References</a></li>
       </ul>
