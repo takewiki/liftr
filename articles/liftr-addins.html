@@ -96,10 +96,31 @@
     
     
 <div class="contents">
-<div id="rstudio-addins" class="section level1">
+<div id="rstudio-addins-to-the-rescue" class="section level1">
 <h1 class="hasAnchor">
-<a href="#rstudio-addins" class="anchor"></a>RStudio Addins</h1>
-<p>Four RStudio addins are available for …</p>
+<a href="#rstudio-addins-to-the-rescue" class="anchor"></a>RStudio addins to the rescue</h1>
+<p>If you use RStudio, there is a good chance that you love the <code>Knit</code> button that will give you the power of one-click R Markdown document compilation. Luckily, we also prepared four RStudio addins that supports containerizing and rendering your documents with liftr.</p>
+<p><img src="https://i.imgur.com/HahL1l2.png" width="100%" class="img-responsive" alt="RStudio addins for liftr"></p>
+</div>
+<div id="addin-containerize" class="section level1">
+<h1 class="hasAnchor">
+<a href="#addin-containerize" class="anchor"></a>Addin: 📦 Containerize</h1>
+<p>This addin helps you generate the <code>Dockerfile</code> for the current R Markdown document opened in RStudio (with liftr meta), using <code><a href="../reference/lift.html">lift()</a></code>.</p>
+</div>
+<div id="addin-render" class="section level1">
+<h1 class="hasAnchor">
+<a href="#addin-render" class="anchor"></a>Addin: 🎉 Render</h1>
+<p>This addin will generate the <code>Dockerfile</code> based on the document, create the Docker container, and render the document inside the container using <code><a href="../reference/render_docker.html">render_docker()</a></code>.</p>
+</div>
+<div id="addin-prune-dangling" class="section level1">
+<h1 class="hasAnchor">
+<a href="#addin-prune-dangling" class="anchor"></a>Addin: ✂️ Prune Dangling</h1>
+<p>Sometimes the Docker image build fails due to various reasons, this addin will help you clean up the unused dangling containers and images automatically.</p>
+</div>
+<div id="addin-remove-image" class="section level1">
+<h1 class="hasAnchor">
+<a href="#addin-remove-image" class="anchor"></a>Addin: 🗑 Remove Image</h1>
+<p>After having a satisfying rendered document, maybe you would not need the Docker image for rendering the document for a long time. This addin helps you remove that particular Docker image.</p>
 </div>
 </div>
   </div>
@@ -109,7 +130,11 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#rstudio-addins">RStudio Addins</a></li>
+<li><a href="#rstudio-addins-to-the-rescue">RStudio addins to the rescue</a></li>
+      <li><a href="#addin-containerize">Addin: 📦 Containerize</a></li>
+      <li><a href="#addin-render">Addin: 🎉 Render</a></li>
+      <li><a href="#addin-prune-dangling">Addin: ✂️ Prune Dangling</a></li>
+      <li><a href="#addin-remove-image">Addin: 🗑 Remove Image</a></li>
       </ul>
 </div>
       </div>
