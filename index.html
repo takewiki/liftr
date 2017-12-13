@@ -86,69 +86,87 @@
       
       </header><div class="row">
   <div class="contents col-md-9">
-    <section class="level1"><div class="page-header"><h1>liftr <a href="https://liftr.me"><img src="https://i.imgur.com/3SCYZu0.png" align="right" alt="logo" height="180" width="180"></a>
+    <div id="liftr" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#liftr" class="anchor"></a>liftr <a href="https://liftr.me"><img src="https://i.imgur.com/3SCYZu0.png" align="right" alt="logo" height="180" width="180"></a>
 </h1></div>
 
 <p>liftr aims to solve the problem of <em>persistent reproducible reporting</em>. To achieve this goal, it extends the <a href="http://rmarkdown.rstudio.com">R Markdown</a> metadata format, and uses Docker to containerize and render R Markdown documents.</p>
-<section class="level2"><h2>Installation</h2>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install liftr from CRAN:</p>
-<pre class="sourceCode r" id="cb1"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"liftr"</span>)</a></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"liftr"</span>)</code></pre></div>
 <p>Or try the development version on GitHub:</p>
-<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"road2stat/liftr"</span>)</a></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"road2stat/liftr"</span>)</code></pre></div>
 <p><a href="https://liftr.me/articles/">Browse the vignettes</a> or the <a href="https://vimeo.com/212815497">demo video</a> for a quick-start.</p>
-</section><section class="level2"><h2>Workflow</h2>
+</div>
+<div id="workflow" class="section level2">
+<h2 class="hasAnchor">
+<a href="#workflow" class="anchor"></a>Workflow</h2>
 <p><img src="https://i.imgur.com/AKveypK.png" width="100%" alt="Containerize R Markdown Documents with liftr"></p>
-</section><section class="level2"><h2>Events</h2>
+</div>
+<div id="events" class="section level2">
+<h2 class="hasAnchor">
+<a href="#events" class="anchor"></a>Events</h2>
 <table class="table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 32%">
-<col style="width: 44%">
+<col width="22%">
+<col width="32%">
+<col width="44%">
 </colgroup>
 <thead><tr class="header">
-<th style="text-align: left;">Time</th>
-<th style="text-align: left;">Event</th>
-<th style="text-align: left;">Location</th>
+<th align="left">Time</th>
+<th align="left">Event</th>
+<th align="left">Location</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">July 27, 2017</td>
-<td style="text-align: left;">
+<td align="left">July 27, 2017</td>
+<td align="left">
 <a href="https://bioconductor.org/help/course-materials/2017/BioC2017/">BioC 2017</a> (<a href="https://nanx.me/posters/dockflow-poster-bioc2017.pdf">poster</a> for <a href="https://dockflow.org/">dockflow.org</a>)</td>
-<td style="text-align: left;">Dana-Farber Cancer Institute, Boston, MA</td>
+<td align="left">Dana-Farber Cancer Institute, Boston, MA</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">May 20, 2017</td>
-<td style="text-align: left;">
+<td align="left">May 20, 2017</td>
+<td align="left">
 <a href="http://china-r.org/">The 10th China-R Conference</a> (talk)</td>
-<td style="text-align: left;">Tsinghua University, Beijng, China</td>
+<td align="left">Tsinghua University, Beijng, China</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">April 18, 2017</td>
-<td style="text-align: left;">
+<td align="left">April 18, 2017</td>
+<td align="left">
 <a href="http://2017.dockercon.com/">DockerCon 2017</a> (<a href="https://nanx.me/talks/dockercon2017-liftr-nanxiao.pdf">talk</a>)</td>
-<td style="text-align: left;">Austin Convention Center, Austin, TX</td>
+<td align="left">Austin Convention Center, Austin, TX</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">December 3, 2015</td>
-<td style="text-align: left;">
+<td align="left">December 3, 2015</td>
+<td align="left">
 <a href="http://learn.cri.uchicago.edu/2015-cri-bioinformatics-workshop/">CRI Bioinformatics Workshop</a> (talk)</td>
-<td style="text-align: left;">The University of Chicago, Chicago, IL</td>
+<td align="left">The University of Chicago, Chicago, IL</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">July 21, 2015</td>
-<td style="text-align: left;">
+<td align="left">July 21, 2015</td>
+<td align="left">
 <a href="https://bioconductor.org/help/course-materials/2015/BioC2015/">BioC 2015</a> (workshop)</td>
-<td style="text-align: left;">Fred Hutchinson Cancer Research Center, Seattle, WA</td>
+<td align="left">Fred Hutchinson Cancer Research Center, Seattle, WA</td>
 </tr>
 </tbody>
-</table></section><section class="level2"><h2>Contribute</h2>
-<p>To contribute to this project, please take a look at the <a href="https://github.com/road2stat/liftr/blob/master/CONTRIBUTING.md">Contributing Guidelines</a> first. Please note that this project is released with a <a href="https://github.com/road2stat/liftr/blob/master/CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
-</section><section class="level2"><h2>License</h2>
-<p>liftr is free and open source software, licensed under GPL-3.</p>
-</section></section>
+</table>
 </div>
+<div id="contribute" class="section level2">
+<h2 class="hasAnchor">
+<a href="#contribute" class="anchor"></a>Contribute</h2>
+<p>To contribute to this project, please take a look at the <a href="https://github.com/road2stat/liftr/blob/master/CONTRIBUTING.md">Contributing Guidelines</a> first. Please note that this project is released with a <a href="https://github.com/road2stat/liftr/blob/master/CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+</div>
+<div id="license" class="section level2">
+<h2 class="hasAnchor">
+<a href="#license" class="anchor"></a>License</h2>
+<p>liftr is free and open source software, licensed under GPL-3.</p>
+</div>
+</div>
+  </div>
 
   <div class="col-md-3" id="sidebar">
     <h2>Links</h2>
